@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Concept by Lily</title>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+
+    
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#F8E7EC;
+}
+
+header{
+    text-align:center;
+    background:#E6C4CC;
+    padding:40px;
+}
+
+header h1{
+    margin:0;
+    color:#444;
+}
+
+header p{
+    color:#444;
+}
+
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:40px 20px;
+}
+
+.card{
+    background:white;
+    width:320px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+
+.card img{
+    width:100%;
+    height:280px;
+    object-fit:contain;
+    background:white;
+}
+
+.card-content{
+    padding:20px;
+    text-align:center;
+}
+
+.card h3{
+    margin:0;
+    color:#444;
+}
+
+.price{
+    font-size:30px;
+    margin:15px 0;
+}
+
+.btn{
+    border:none;
+    background:#D6A5A4;
+    color:white;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+.cart{
+    background:white;
+    max-width:800px;
+    margin:20px auto 50px;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+
+.cart h2{
+    margin-top:0;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #eee;
+    padding:10px 0;
+}
+
+.remove{
+    background:#e57373;
+    color:white;
+    border:none;
+    border-radius:6px;
+    padding:6px 10px;
+    cursor:pointer;
+}
+
+.total{
+    margin-top:20px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.whatsapp-btn{
+    margin-top:20px;
+    display:inline-block;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:15px 25px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.empty{
+    color:#888;
+}
+
+</style>
+</head>
+
+
+    
+<body>
+
+<header>
+    <h1>Concept by Lily 💖</h1>
+    <p>Skincare, maquillaje y accesorios</p>
+</header>
+
+<section class="products">
+<!-- Add lipstick only ####################################################### -->
+    
+    <!-- Left on Red -->
+    
+    <div class="card">
+
+        <img src="left-on-red.jpg">
+
+        <div class="card-content">
+            <h3>E.L.F. Left on Red</h3>
+            <div class="price">C$ 430</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('E.L.F. Left on Red',430)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Left on Red -->
+    
+    <div class="card">
+
+        <img src="plum-up.jpg">
+
+        <div class="card-content">
+            <h3>E.L.F. Plum up</h3>
+            <div class="price">C$ 430</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('E.L.F. Plum up',430)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Pink Positive -->
+    
+    <div class="card">
+
+        <img src="pink-positive.jpg">
+
+        <div class="card-content">
+            <h3>E.L.F. Pink Positive</h3>
+            <div class="price">C$ 430</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('E.L.F. Pink Positive',430)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+
+        <!-- Burgundid -->
+    
+    <div class="card">
+
+        <img src="burgundid.jpg">
+
+        <div class="card-content">
+            <h3>E.L.F. Burgundid</h3>
+            <div class="price">C$ 430</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('E.L.F.Burgundid',430)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+<!-- Add Masks only ####################################################### -->
+
+            <!-- Talk that taupe -->
+    
+    <div class="card">
+
+        <img src="talk-that-taupe.jpg">
+
+        <div class="card-content">
+            <h3>Glow Reviver Plumping Lin Oil - Talk that taupe</h3>
+            <div class="price">C$ 500</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Glow Reviver Plumping Lin Oil - Talk that taupe',500)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+                <!-- Ultraviolet -->
+    
+    <div class="card">
+
+        <img src="ultraviolet.jpg">
+
+        <div class="card-content">
+            <h3>Glow Reviver Plumping Lin Oil - Ultraviolet</h3>
+            <div class="price">C$ 500</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Glow Reviver Plumping Lin Oil - Ultraviolet',500)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+    
+                <!-- Burst Bubble -->
+    
+    <div class="card">
+
+        <img src="burst-bubble.jpg">
+
+        <div class="card-content">
+            <h3>Glow Reviver Plumping Lin Oil - Burst Bubble</h3>
+            <div class="price">C$ 500</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Glow Reviver Plumping Lin Oil - Burst Bubble',500)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+                    <!-- Heavy Petal -->
+    
+    <div class="card">
+
+        <img src="heavy-petal.jpg">
+
+        <div class="card-content">
+            <h3>Glow Reviver Plumping Lin Oil - Heavy Petal</h3>
+            <div class="price">C$ 500</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Glow Reviver Plumping Lin Oil - Heavy Petal',500)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+    
+<!-- Add Powders only ####################################################### -->
+
+            <!-- Powder Blush Pallet Elf 4 tonos -->
+    
+    <div class="card">
+
+        <img src="powder-blush-palette.jpg">
+
+        <div class="card-content">
+            <h3>Powder Blush Pallet Elf - 4 Tonos</h3>
+            <div class="price">C$ 570</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Powder Blush Pallet Elf - 4 Tonos',570)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+<!-- Add Brow only ####################################################### -->
+
+                <!-- E.L.F Brow Laminating Gel -->
+    
+    <div class="card">
+
+        <img src="brow-laminating-gel.jpg">
+
+        <div class="card-content">
+            <h3>E.L.F Brow Laminating Gel</h3>
+            <div class="price">C$ 570</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('E.L.F Brow Laminating Gel',570)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+    
+<!-- Add Maybelline only ####################################################### -->
+
+            <!-- Maybelline Sky high -->
+    
+    <div class="card">
+
+        <img src="maybelline-sky-high.jpg">
+
+        <div class="card-content">
+            <h3>Mascara Maybelline Sky High</h3>
+            <div class="price">C$ 600</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Mascara Maybelline Sky High',600)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+                <!-- Maybelline Cool Grunge -->
+    
+    <div class="card">
+
+        <img src="maybelline-cool-grunge.jpg">
+
+        <div class="card-content">
+            <h3>Teddy Tint - Maybelline Cool Grunge</h3>
+            <div class="price">C$ 440</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Teddy Tint - Maybelline Cool Grunge',440)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+
+                <!-- Maybelline Kneehigh -->
+    
+    <div class="card">
+
+        <img src="maybelline-kneehigh.jpg">
+
+        <div class="card-content">
+            <h3>Teddy Tint - Maybelline Kneehigh</h3>
+            <div class="price">C$ 440</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Teddy Tint - Maybelline Kneehigh',440)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+                    <!-- Maybelline Pinky Promise -->
+    
+    <div class="card">
+
+        <img src="maybelline-pinky-promise.jpg">
+
+        <div class="card-content">
+            <h3>Teddy Tint - Maybelline Pinky Promise</h3>
+            <div class="price">C$ 440</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Teddy Tint - Maybelline Pinky Promise',440)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- Add Body Lotion only ####################################################### -->
+
+            <!-- Beach Waves Lotion -->
+    
+    <div class="card">
+
+        <img src="body-lotion-beach-waves-16onz.jpg">
+
+        <div class="card-content">
+            <h3>Body Lotion EOS Beach Waves - 16 Onz </h3>
+            <div class="price">C$ 760</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Body Lotion EOS Beach Waves - 16 Onz',760)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+
+                <!-- Vainilla Cashmere Lotion -->
+    
+    <div class="card">
+
+        <img src="body-lotion-vainilla-cashmere-16onz.jpg">
+
+        <div class="card-content">
+            <h3>Body Lotion EOS Vainilla Cashmere - 16 Onz </h3>
+            <div class="price">C$ 760</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Body Lotion EOS Vainilla Cashmere - 16 Onz',760)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+    
+                <!-- Fresh and Cozy Lotion -->
+    
+    <div class="card">
+
+        <img src="body-lotion-fresh-n-cozy-16onz.jpg">
+
+        <div class="card-content">
+            <h3>Body Lotion EOS Fresh & Cozy - 16 Onz </h3>
+            <div class="price">C$ 760</div>
+
+            <button
+                class="btn"
+                onclick="addToCart('Body Lotion EOS Fresh & Cozy - 16 Onz',760)"
+            >
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+
+<!-- Finishing section ####################################################### -->
+    
+</section>
+
+<section class="cart">
+
+    <h2>🛒 Carrito</h2>
+
+    <div id="cartItems">
+        <p class="empty">No hay productos en el carrito.</p>
+    </div>
+
+    <div id="total" class="total">
+        Total: C$ 0
+    </div>
+
+<button
+    id="whatsappBtn"
+    class="whatsapp-btn"
+    onclick="generateInvoice()"
+>
+    Finalizar pedido
+</button>
+
+
+</section>
+<div id="invoiceModal" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
+z-index:9999;
+">
+
+<div style="
+background:white;
+padding:20px;
+border-radius:20px;
+max-width:500px;
+width:95%;
+max-height:90vh;
+overflow:auto;
+">
+
+<div id="invoiceArea"></div>
+
+<br>
+
+<button class="btn" onclick="shareInvoice()">
+💖 Enviar Pedido
+</button>
+
+
+<button class="remove" onclick="closeInvoice()">
+Cerrar
+</button>
+
+</div>
+</div>
+<script>
+
+let cart = {};
+let lastInvoiceImage = null;
+    
+function addToCart(name, price){
+
+    if(cart[name]){
+        cart[name].quantity++;
+    }else{
+        cart[name] = {
+            price: price,
+            quantity: 1
+        };
+    }
+
+    renderCart();
+}
+
+function removeFromCart(name){
+
+    if(cart[name].quantity > 1){
+        cart[name].quantity--;
+    }else{
+        delete cart[name];
+    }
+
+    renderCart();
+}
+
+function renderCart(){
+
+    let container =
+        document.getElementById("cartItems");
+
+    let total = 0;
+
+    container.innerHTML = "";
+
+    const keys = Object.keys(cart);
+
+    if(keys.length === 0){
+
+        container.innerHTML =
+        '<p class="empty">No hay productos en el carrito.</p>';
+
+        document.getElementById("total")
+        .innerText = "Total: C$ 0";
+
+        return;
+    }
+
+    keys.forEach(product=>{
+
+        let item = cart[product];
+
+        let subtotal =
+            item.quantity * item.price;
+
+        total += subtotal;
+
+        container.innerHTML += `
+        <div class="cart-item">
+            <div>
+                <strong>${product}</strong>
+                <br>
+                Cantidad: ${item.quantity}
+                <br>
+                Subtotal: C$ ${subtotal}
+            </div>
+
+            <button
+                class="remove"
+                onclick="removeFromCart('${product}')"
+            >
+                Eliminar
+            </button>
+        </div>
+        `;
+    });
+
+    document.getElementById("total")
+    .innerText = `Total: C$ ${total}`;
+}
+
+function generateInvoice(){
+
+    const keys = Object.keys(cart);
+
+    if(keys.length === 0){
+
+        alert("Agrega productos al carrito primero.");
+        return;
+    }
+
+    let total = 0;
+
+    let html = `
+    <div style="
+    background:white;
+    padding:20px;
+    color:#444;
+    font-family:Arial;
+    ">
+
+        <h2 style="text-align:center;">
+        Concept by Lily 💖
+        </h2>
+        <p style="
+        text-align:center;
+        font-size:18px;
+        margin:5px 0;
+        ">
+        📱 WhatsApp: +505 8798 4118
+        </p>
+
+<p style="text-align:center;">
+Proforma de Pedido
+</p>
+
+        <hr>
+    `;
+
+    keys.forEach(product=>{
+
+        const item = cart[product];
+
+        const subtotal =
+        item.price * item.quantity;
+
+        total += subtotal;
+
+        html += `
+        <p>
+        ✅ ${product}
+        <br>
+        Cantidad: ${item.quantity}
+        <br>
+        Subtotal: C$ ${subtotal}
+        </p>
+        `;
+    });
+
+    html += `
+        <hr>
+
+        <h2>
+        Total: C$ ${total}
+        </h2>
+
+        <p>
+        Gracias por elegir
+        Concept by Lily 💖
+        </p>
+
+    </div>
+    `;
+
+    document.getElementById(
+    "invoiceArea"
+    ).innerHTML = html;
+
+    document.getElementById(
+    "invoiceModal"
+    ).style.display = "flex";
+}
+
+function closeInvoice(){
+
+    document.getElementById(
+    "invoiceModal"
+    ).style.display = "none";
+}
+
+
+ async function shareInvoice(){
+
+    try{
+
+        const canvas = await html2canvas(
+            document.getElementById("invoiceArea")
+        );
+
+        canvas.toBlob(async (blob) => {
+
+            const file = new File(
+                [blob],
+                "Pedido-Concept-by-Lily.png",
+                {
+                    type:"image/png"
+                }
+            );
+
+            if(
+                navigator.canShare &&
+                navigator.canShare({
+                    files:[file]
+                })
+            ){
+
+                await navigator.share({
+                    files:[file],
+                    title:"Pedido Concept by Lily",
+                    text:"Hola 💖, me gustaría realizar este pedido."
+                });
+
+            }else{
+
+                alert(
+                "Tu dispositivo no admite compartir imágenes."
+                );
+
+            }
+
+        });
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+        "No fue posible compartir el pedido."
+        );
+
+    }
+}
+
+console.log("Script cargado");
+
+window.shareInvoice = shareInvoice;
+    
+</script>
+
+</body>
+</html>
