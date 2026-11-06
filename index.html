@@ -362,6 +362,7 @@ Cerrar
     Para marcarlo agotado, cambia available: true por available: false.
 */
 const products = [
+    /*Camisas*/
     {
         name: "Camisa Casual Cherry prints",
         price: 1000,
@@ -371,6 +372,31 @@ const products = [
         sizes: ["M"],
         colors: ["Blanco"]
     },
+    {
+        name: "Camisa casual",
+        price: 1000,
+        image: "camisa-casual-verde-m.jpg",
+        category: "shirts",
+        available: true,
+        sizes: ["M"],
+        colors: ["Verde","Caqui"],
+        colorImages: {
+            "Verde": "camisa-casual-verde-m.jpg",
+            "Caqui": "camisa-casual-caqui-m.jpg",
+        }
+    },
+    {
+        name: "Camisa Casual",
+        price: 1000,
+        image: "camisa-casual-cafe-l.jpg",
+        category: "shirts",
+        available: true,
+        sizes: ["L"],
+        colors: ["Café"]
+    },
+
+    
+    /*Bolsos y Carteras*/
     {
         name: "Cartera - Monedero",
         price: 1000,
@@ -429,15 +455,8 @@ const products = [
             "Café": "mochla-mediana-cafe.jpg"
         }
     },
-    {
-        name: "Camisa Casual",
-        price: 1000,
-        image: "camisa-casual-cafe-l.jpg",
-        category: "shirts",
-        available: true,
-        sizes: ["L"],
-        colors: ["Café"]
-    },
+
+    /*Conjuntos y Vestidos*/
     {
         name: "Conjunto de Pijama",
         price: 1000,
@@ -465,11 +484,13 @@ const products = [
         sizes: ["M"],
         colors: ["Café"]
     },
+
+    /*Accesorios*/
     {
         name: "Estuche Silicona",
         price: 1000,
         image: "vestido-largo-cafe-m.jpg",
-        category: "conjuntos",
+        category: "accesories",
         available: true,
         sizes: ["M"],
         colors: ["Rosa","Morado","Azul Cielo"],
@@ -477,19 +498,6 @@ const products = [
             "Rosa": "estuche-silicona-rosa.jpg",
             "Morado": "estuche-silicona-morado.jpg",
             "Azul Cielo": "estuche-silicona-azul-cielo.jpg",
-        }
-    },
-    {
-        name: "Camisa casual",
-        price: 1000,
-        image: "camisa-casual-verde-m.jpg",
-        category: "shirts",
-        available: true,
-        sizes: ["M"],
-        colors: ["Verde","Caqui"],
-        colorImages: {
-            "Verde": "camisa-casual-verde-m.jpg",
-            "Caqui": "camisa-casual-caqui-m.jpg",
         }
     }
 ];
