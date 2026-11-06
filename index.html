@@ -8,7 +8,30 @@
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     
 <style>
+.variant-group {
+    text-align: left;
+    margin: 14px 0;
+}
 
+.variant-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 7px;
+    color: #80545B;
+}
+
+.variant-group select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #D6A5A4;
+    border-radius: 9px;
+    background: white;
+    color: #444;
+    font-size: 15px;
+}
+
+    
 *{
     box-sizing:border-box;
 }
@@ -261,12 +284,10 @@ header p{
 
     <nav class="category-nav" aria-label="Filtrar productos por categoría">
         <button class="category-btn active" type="button" data-filter="all">Todos</button>
-        <button class="category-btn" type="button" data-filter="lipsticks">Lipsticks</button>
-        <button class="category-btn" type="button" data-filter="lip-oils">Lip Oils</button>
-        <button class="category-btn" type="button" data-filter="powders">Powders</button>
-        <button class="category-btn" type="button" data-filter="brow">Brow</button>
-        <button class="category-btn" type="button" data-filter="maybelline">Maybelline</button>
-        <button class="category-btn" type="button" data-filter="body-lotions">Body Lotions</button>
+        <button class="category-btn" type="button" data-filter="shirts">Camisas</button>
+        <button class="category-btn" type="button" data-filter="bags">Carteras y bolsos</button>
+        <button class="category-btn" type="button" data-filter="jewelry">Joyeria</button>
+        <button class="category-btn" type="button" data-filter="accessories">Accesorios</button>
     </nav>
     <p id="productCount" class="product-count" aria-live="polite"></p>
 </section>
@@ -342,123 +363,21 @@ Cerrar
 */
 const products = [
     {
-        name: "E.L.F. Left on Red",
-        price: 430,
-        image: "left-on-red.jpg",
-        category: "lipsticks",
-        available: true
+        name: "Camisa Casual Cherry prints",
+        price: 1000,
+        image: "camisa-casual-blanco-cherry-print-m.jpg",
+        category: "shirts",
+        available: true,
+        sizes: ["M"],
+        colors: ["Blanco"]
     },
     {
-        name: "E.L.F. Plum up",
-        price: 430,
-        image: "plum-up.jpg",
-        category: "lipsticks",
-        available: true
-    },
-    {
-        name: "E.L.F. Pink Positive",
-        price: 430,
-        image: "pink-positive.jpg",
-        category: "lipsticks",
-        available: true
-    },
-    {
-        name: "E.L.F. Burgundid",
-        price: 430,
-        image: "burgundid.jpg",
-        category: "lipsticks",
-        available: true
-    },
-    {
-        name: "Glow Reviver Plumping Lip Oil - Talk that taupe",
-        price: 500,
-        image: "talk-that-taupe.jpg",
-        category: "lip-oils",
-        available: true
-    },
-    {
-        name: "Glow Reviver Plumping Lip Oil - Ultraviolet",
-        price: 500,
-        image: "ultraviolet.jpg",
-        category: "lip-oils",
-        available: true
-    },
-    {
-        name: "Glow Reviver Plumping Lip Oil - Burst Bubble",
-        price: 500,
-        image: "burst-bubble.jpg",
-        category: "lip-oils",
-        available: true
-    },
-    {
-        name: "Glow Reviver Plumping Lip Oil - Heavy Petal",
-        price: 500,
-        image: "heavy-petal.jpg",
-        category: "lip-oils",
-        available: true
-    },
-    {
-        name: "Powder Blush Pallet Elf - 4 Tonos",
-        price: 570,
-        image: "powder-blush-palette.jpg",
-        category: "powders",
-        available: true
-    },
-    {
-        name: "E.L.F Brow Laminating Gel",
-        price: 570,
-        image: "brow-laminating-gel.jpg",
-        category: "brow",
-        available: true
-    },
-    {
-        name: "Mascara Maybelline Sky High",
-        price: 600,
-        image: "maybelline-sky-high.jpg",
-        category: "maybelline",
-        available: true
-    },
-    {
-        name: "Teddy Tint - Maybelline Cool Grunge",
-        price: 440,
-        image: "maybelline-cool-grunge.jpg",
-        category: "maybelline",
-        available: true
-    },
-    {
-        name: "Teddy Tint - Maybelline Kneehigh",
-        price: 440,
-        image: "maybelline-kneehigh.jpg",
-        category: "maybelline",
-        available: true
-    },
-    {
-        name: "Teddy Tint - Maybelline Pinky Promise",
-        price: 440,
-        image: "maybelline-pinky-promise.jpg",
-        category: "maybelline",
-        available: true
-    },
-    {
-        name: "Body Lotion EOS Beach Waves - 16 Onz",
-        price: 760,
-        image: "body-lotion-beach-waves-16onz.jpg",
-        category: "body-lotions",
-        available: true
-    },
-    {
-        name: "Body Lotion EOS Vainilla Cashmere - 16 Onz",
-        price: 760,
-        image: "body-lotion-vainilla-cashmere-16onz.jpg",
-        category: "body-lotions",
-        available: true
-    },
-    {
-        name: "Body Lotion EOS Fresh & Cozy - 16 Onz",
-        price: 760,
-        image: "body-lotion-fresh-n-cozy-16onz.jpg",
-        category: "body-lotions",
-        available: true
+        name: "Cartera - Monedero",
+        price: 1000,
+        image: "cartera-monedero-rojo.jpg",
+        category: "bags",
+        available: true,
+        colors: ["Negro", "Rojo", "Beige", "Burgundi"]
     }
 ];
 
@@ -480,6 +399,41 @@ function normalizeText(value) {
 }
 
 /* Dibuja las tarjetas a partir del arreglo products. */
+
+function renderVariantSelectors(product, index) {
+    let html = "";
+
+    if (product.sizes?.length) {
+        html += `
+            <div class="variant-group">
+                <label for="size-${index}">Talla</label>
+                <select id="size-${index}" data-size-select>
+                    <option value="">Selecciona una talla</option>
+                    ${product.sizes.map(size => `
+                        <option value="${size}">${size}</option>
+                    `).join("")}
+                </select>
+            </div>
+        `;
+    }
+
+    if (product.colors?.length) {
+        html += `
+            <div class="variant-group">
+                <label for="color-${index}">Color</label>
+                <select id="color-${index}" data-color-select>
+                    <option value="">Selecciona un color</option>
+                    ${product.colors.map(color => `
+                        <option value="${color}">${color}</option>
+                    `).join("")}
+                </select>
+            </div>
+        `;
+    }
+
+    return html;
+}
+    
 function renderProducts() {
     const search = normalizeText(searchInput.value);
 
@@ -511,7 +465,10 @@ function renderProducts() {
         const unavailable = !product.available;
 
         return `
-            <article class="card ${unavailable ? "is-unavailable" : ""}">
+            <article
+                class="card ${unavailable ? "is-unavailable" : ""}"
+                data-card-index="${product.index}"
+            >
                 <img
                     src="${escapeHTML(product.image)}"
                     alt="${escapeHTML(product.name)}"
@@ -525,7 +482,12 @@ function renderProducts() {
                     }
 
                     <h3>${escapeHTML(product.name)}</h3>
-                    <div class="price">C$ ${formatNumber(product.price)}</div>
+
+                    <div class="price">
+                        C$ ${formatNumber(product.price)}
+                    </div>
+
+                    ${renderVariantSelectors(product, product.index)}
 
                     <button
                         class="btn"
@@ -581,22 +543,58 @@ searchInput.addEventListener("input", renderProducts);
 
 /* Añade al carrito usando el índice del producto en el catálogo. */
 function addProductToCart(index) {
+
     const product = products[index];
 
     if (!product || !product.available) {
-        alert("Este producto está agotado.");
         return;
     }
 
-    addToCart(product.name, product.price);
+    const card = productsContainer.querySelector(
+        `[data-card-index="${index}"]`
+    );
+
+    if (!card) return;
+
+    const sizeSelect = card.querySelector("[data-size-select]");
+    const colorSelect = card.querySelector("[data-color-select]");
+
+    const selectedSize = sizeSelect ? sizeSelect.value : "";
+    const selectedColor = colorSelect ? colorSelect.value : "";
+
+    if (sizeSelect && !selectedSize) {
+        alert("Selecciona una talla.");
+        return;
+    }
+
+    if (colorSelect && !selectedColor) {
+        alert("Selecciona un color.");
+        return;
+    }
+
+    addToCart(product, selectedSize, selectedColor);
 }
 
-function addToCart(name, price) {
-    if (cart[name]) {
-        cart[name].quantity++;
+function makeCartKey(product, size, color) {
+    return JSON.stringify([
+        product.name,
+        size || "",
+        color || ""
+    ]);
+}
+
+function addToCart(product, size = "", color = "") {
+
+    const key = makeCartKey(product, size, color);
+
+    if (cart[key]) {
+        cart[key].quantity++;
     } else {
-        cart[name] = {
-            price: price,
+        cart[key] = {
+            name: product.name,
+            price: product.price,
+            size: size,
+            color: color,
             quantity: 1
         };
     }
@@ -604,13 +602,14 @@ function addToCart(name, price) {
     renderCart();
 }
 
-function removeFromCart(name) {
-    if (!cart[name]) return;
+function removeFromCart(key) {
 
-    if (cart[name].quantity > 1) {
-        cart[name].quantity--;
+    if (!cart[key]) return;
+
+    if (cart[key].quantity > 1) {
+        cart[key].quantity--;
     } else {
-        delete cart[name];
+        delete cart[key];
     }
 
     renderCart();
@@ -624,31 +623,45 @@ function renderCart() {
     if (keys.length === 0) {
         container.innerHTML =
             '<p class="empty">No hay productos en el carrito.</p>';
+
         totalElement.innerText = "Total: C$ 0";
         return;
     }
 
     let total = 0;
 
-    container.innerHTML = keys.map(productName => {
-        const item = cart[productName];
+    container.innerHTML = keys.map(key => {
+        const item = cart[key];
         const subtotal = item.quantity * item.price;
+
         total += subtotal;
 
         return `
             <div class="cart-item">
                 <div>
-                    <strong>${escapeHTML(productName)}</strong>
+                    <strong>${escapeHTML(item.name)}</strong>
                     <br>
+
+                    ${item.size
+                        ? `Talla: ${escapeHTML(item.size)}<br>`
+                        : ""
+                    }
+
+                    ${item.color
+                        ? `Color: ${escapeHTML(item.color)}<br>`
+                        : ""
+                    }
+
                     Cantidad: ${item.quantity}
                     <br>
+
                     Subtotal: C$ ${formatNumber(subtotal)}
                 </div>
 
                 <button
                     class="remove"
                     type="button"
-                    data-remove-product="${escapeHTML(productName)}"
+                    data-remove-product="${escapeHTML(key)}"
                 >
                     Eliminar
                 </button>
@@ -664,7 +677,6 @@ function renderCart() {
 
     totalElement.innerText = `Total: C$ ${formatNumber(total)}`;
 }
-
 function generateInvoice() {
     const keys = Object.keys(cart);
 
@@ -708,10 +720,22 @@ function generateInvoice() {
 
         html += `
             <p>
-                ✅ ${escapeHTML(productName)}
+                ✅ ${escapeHTML(item.name)}
                 <br>
+        
+                ${item.size
+                    ? `Talla: ${escapeHTML(item.size)}<br>`
+                    : ""
+                }
+        
+                ${item.color
+                    ? `Color: ${escapeHTML(item.color)}<br>`
+                    : ""
+                }
+        
                 Cantidad: ${item.quantity}
                 <br>
+        
                 Subtotal: C$ ${formatNumber(subtotal)}
             </p>
         `;
