@@ -29,11 +29,11 @@ header{
 
 header h1{
     margin:0;
-    color:white;
+    color:#444;
 }
 
 header p{
-    color:#D1D5DB;
+    color:#444;
 }
 
 .products{
@@ -76,7 +76,7 @@ header p{
 
 .btn{
     border:none;
-    background:#9B9619;
+    background:#D6A5A4;
     color:white;
     padding:12px 25px;
     border-radius:10px;
@@ -139,6 +139,102 @@ header p{
     color:#888;
 }
 
+
+.catalog-tools{
+    max-width:1200px;
+    margin:25px auto 0;
+    padding:0 20px;
+}
+.search-wrap{
+    max-width:520px;
+    margin:0 auto 18px;
+}
+#productSearch{
+    width:100%;
+    padding:14px 18px;
+    border:1px solid #D6A5A4;
+    border-radius:12px;
+    background:white;
+    color:#444;
+    font-size:16px;
+    outline:none;
+}
+#productSearch:focus{
+    border-color:#B97983;
+    box-shadow:0 0 0 3px rgba(214,165,164,.2);
+}
+.category-nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+.category-btn{
+    border:1px solid #D6A5A4;
+    background:white;
+    color:#80545B;
+    padding:10px 17px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.2s;
+}
+.category-btn:hover,
+.category-btn.active{
+    background:#D6A5A4;
+    color:white;
+}
+.product-count{
+    text-align:center;
+    color:#80545B;
+    font-size:14px;
+    margin:14px 0 0;
+}
+.card{
+    position:relative;
+}
+.stock-badge{
+    display:inline-block;
+    background:#e57373;
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:.5px;
+    padding:7px 12px;
+    border-radius:20px;
+    margin-bottom:12px;
+}
+.card.is-unavailable img{
+    opacity:.55;
+}
+.card .btn:disabled{
+    background:#bdbdbd;
+    cursor:not-allowed;
+    opacity:1;
+}
+.no-results{
+    width:100%;
+    text-align:center;
+    color:#80545B;
+    padding:35px 15px;
+    font-size:17px;
+}
+@media(max-width:600px){
+    .catalog-tools{
+        padding:0 14px;
+    }
+    .category-nav{
+        justify-content:flex-start;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        padding:3px 2px 10px;
+        scrollbar-width:thin;
+    }
+    .category-btn{
+        flex:0 0 auto;
+    }
+}
+
 </style>
 </head>
 
@@ -151,24 +247,46 @@ header p{
     <p>Skincare, maquillaje y accesorios</p>
 </header>
 
-<section class="products">
-<!-- Add Shirts only ####################################################### -->
-    
-    <!-- Camisa Casual M Blanco Cherry print -->
-    
-    <div class="card">
 
-        <img src="camisa-casual-blanco-cherry-print-m.jpg">
+<section class="catalog-tools">
+    <div class="search-wrap">
+        <input
+            type="search"
+            id="productSearch"
+            placeholder="Buscar productos..."
+            aria-label="Buscar productos"
+        >
+    </div>
+
+    <nav class="category-nav" aria-label="Filtrar productos por categoría">
+        <button class="category-btn active" type="button" data-filter="all">Todos</button>
+        <button class="category-btn" type="button" data-filter="lipsticks">Lipsticks</button>
+        <button class="category-btn" type="button" data-filter="lip-oils">Lip Oils</button>
+        <button class="category-btn" type="button" data-filter="powders">Powders</button>
+        <button class="category-btn" type="button" data-filter="brow">Brow</button>
+        <button class="category-btn" type="button" data-filter="maybelline">Maybelline</button>
+        <button class="category-btn" type="button" data-filter="body-lotions">Body Lotions</button>
+    </nav>
+    <p id="productCount" class="product-count" aria-live="polite"></p>
+</section>
+
+<!-- Para marcar un producto agotado, cambia data-available="true" por data-available="false" en su tarjeta. -->
+<section class="products">
+<!-- Add lipstick only ####################################################### -->
+    
+    <!-- Left on Red -->
+    
+    <div class="card" data-category="lipsticks" data-available="true">
+
+        <img src="left-on-red.jpg">
 
         <div class="card-content">
-            <h3>Camisa Casual</h3>
-            <p class="product-size">Talla: M</p>
-            <p class="product-color">Blanco con Cherry print</p>
-            <div class="price">C$ </div>
+            <h3>E.L.F. Left on Red</h3>
+            <div class="price">C$ 430</div>
 
             <button
                 class="btn"
-                onclick="addToCart('Camisa Casual Tirantes Talla M Blanco con Cherry print',0)"
+                onclick="addToCart('E.L.F. Left on Red',430)"
             >
                 Añadir al carrito
             </button>
@@ -178,9 +296,9 @@ header p{
 
     <!-- Left on Red -->
     
-    <div class="card">
+    <div class="card" data-category="lipsticks" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="plum-up.jpg">
 
         <div class="card-content">
             <h3>E.L.F. Plum up</h3>
@@ -198,9 +316,9 @@ header p{
 
     <!-- Pink Positive -->
     
-    <div class="card">
+    <div class="card" data-category="lipsticks" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="pink-positive.jpg">
 
         <div class="card-content">
             <h3>E.L.F. Pink Positive</h3>
@@ -219,9 +337,9 @@ header p{
 
         <!-- Burgundid -->
     
-    <div class="card">
+    <div class="card" data-category="lipsticks" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="burgundid.jpg">
 
         <div class="card-content">
             <h3>E.L.F. Burgundid</h3>
@@ -229,7 +347,7 @@ header p{
 
             <button
                 class="btn"
-                onclick="addToCart('E.L.F.Burgundid',430)"
+                onclick="addToCart('E.L.F. Burgundid',430)"
             >
                 Añadir al carrito
             </button>
@@ -241,17 +359,17 @@ header p{
 
             <!-- Talk that taupe -->
     
-    <div class="card">
+    <div class="card" data-category="lip-oils" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="talk-that-taupe.jpg">
 
         <div class="card-content">
-            <h3>Glow Reviver Plumping Lin Oil - Talk that taupe</h3>
+            <h3>Glow Reviver Plumping Lip Oil - Talk that taupe</h3>
             <div class="price">C$ 500</div>
 
             <button
                 class="btn"
-                onclick="addToCart('Glow Reviver Plumping Lin Oil - Talk that taupe',500)"
+                onclick="addToCart('Glow Reviver Plumping Lip Oil - Talk that taupe',500)"
             >
                 Añadir al carrito
             </button>
@@ -261,17 +379,17 @@ header p{
 
                 <!-- Ultraviolet -->
     
-    <div class="card">
+    <div class="card" data-category="lip-oils" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="ultraviolet.jpg">
 
         <div class="card-content">
-            <h3>Glow Reviver Plumping Lin Oil - Ultraviolet</h3>
+            <h3>Glow Reviver Plumping Lip Oil - Ultraviolet</h3>
             <div class="price">C$ 500</div>
 
             <button
                 class="btn"
-                onclick="addToCart('Glow Reviver Plumping Lin Oil - Ultraviolet',500)"
+                onclick="addToCart('Glow Reviver Plumping Lip Oil - Ultraviolet',500)"
             >
                 Añadir al carrito
             </button>
@@ -282,17 +400,17 @@ header p{
     
                 <!-- Burst Bubble -->
     
-    <div class="card">
+    <div class="card" data-category="lip-oils" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="burst-bubble.jpg">
 
         <div class="card-content">
-            <h3>Glow Reviver Plumping Lin Oil - Burst Bubble</h3>
+            <h3>Glow Reviver Plumping Lip Oil - Burst Bubble</h3>
             <div class="price">C$ 500</div>
 
             <button
                 class="btn"
-                onclick="addToCart('Glow Reviver Plumping Lin Oil - Burst Bubble',500)"
+                onclick="addToCart('Glow Reviver Plumping Lip Oil - Burst Bubble',500)"
             >
                 Añadir al carrito
             </button>
@@ -302,17 +420,17 @@ header p{
 
                     <!-- Heavy Petal -->
     
-    <div class="card">
+    <div class="card" data-category="lip-oils" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="heavy-petal.jpg">
 
         <div class="card-content">
-            <h3>Glow Reviver Plumping Lin Oil - Heavy Petal</h3>
+            <h3>Glow Reviver Plumping Lip Oil - Heavy Petal</h3>
             <div class="price">C$ 500</div>
 
             <button
                 class="btn"
-                onclick="addToCart('Glow Reviver Plumping Lin Oil - Heavy Petal',500)"
+                onclick="addToCart('Glow Reviver Plumping Lip Oil - Heavy Petal',500)"
             >
                 Añadir al carrito
             </button>
@@ -324,9 +442,9 @@ header p{
 
             <!-- Powder Blush Pallet Elf 4 tonos -->
     
-    <div class="card">
+    <div class="card" data-category="powders" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="powder-blush-palette.jpg">
 
         <div class="card-content">
             <h3>Powder Blush Pallet Elf - 4 Tonos</h3>
@@ -346,9 +464,9 @@ header p{
 
                 <!-- E.L.F Brow Laminating Gel -->
     
-    <div class="card">
+    <div class="card" data-category="brow" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="brow-laminating-gel.jpg">
 
         <div class="card-content">
             <h3>E.L.F Brow Laminating Gel</h3>
@@ -369,9 +487,9 @@ header p{
 
             <!-- Maybelline Sky high -->
     
-    <div class="card">
+    <div class="card" data-category="maybelline" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="maybelline-sky-high.jpg">
 
         <div class="card-content">
             <h3>Mascara Maybelline Sky High</h3>
@@ -389,9 +507,9 @@ header p{
 
                 <!-- Maybelline Cool Grunge -->
     
-    <div class="card">
+    <div class="card" data-category="maybelline" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="maybelline-cool-grunge.jpg">
 
         <div class="card-content">
             <h3>Teddy Tint - Maybelline Cool Grunge</h3>
@@ -410,9 +528,9 @@ header p{
 
                 <!-- Maybelline Kneehigh -->
     
-    <div class="card">
+    <div class="card" data-category="maybelline" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="maybelline-kneehigh.jpg">
 
         <div class="card-content">
             <h3>Teddy Tint - Maybelline Kneehigh</h3>
@@ -430,9 +548,9 @@ header p{
 
                     <!-- Maybelline Pinky Promise -->
     
-    <div class="card">
+    <div class="card" data-category="maybelline" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="maybelline-pinky-promise.jpg">
 
         <div class="card-content">
             <h3>Teddy Tint - Maybelline Pinky Promise</h3>
@@ -453,9 +571,9 @@ header p{
 
             <!-- Beach Waves Lotion -->
     
-    <div class="card">
+    <div class="card" data-category="body-lotions" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="body-lotion-beach-waves-16onz.jpg">
 
         <div class="card-content">
             <h3>Body Lotion EOS Beach Waves - 16 Onz </h3>
@@ -474,9 +592,9 @@ header p{
 
                 <!-- Vainilla Cashmere Lotion -->
     
-    <div class="card">
+    <div class="card" data-category="body-lotions" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="body-lotion-vainilla-cashmere-16onz.jpg">
 
         <div class="card-content">
             <h3>Body Lotion EOS Vainilla Cashmere - 16 Onz </h3>
@@ -495,9 +613,9 @@ header p{
     
                 <!-- Fresh and Cozy Lotion -->
     
-    <div class="card">
+    <div class="card" data-category="body-lotions" data-available="true">
 
-        <img src="placeholder.jpg">
+        <img src="body-lotion-fresh-n-cozy-16onz.jpg">
 
         <div class="card-content">
             <h3>Body Lotion EOS Fresh & Cozy - 16 Onz </h3>
@@ -578,6 +696,94 @@ Cerrar
 </div>
 </div>
 <script>
+
+
+let activeCategory = "all";
+
+function initializeProductFilters(){
+    const cards = Array.from(document.querySelectorAll(".products .card"));
+
+    cards.forEach(card => {
+        const available = card.dataset.available !== "false";
+        const content = card.querySelector(".card-content");
+        const button = card.querySelector(".btn");
+
+        if(!available){
+            card.classList.add("is-unavailable");
+
+            if(content && !content.querySelector(".stock-badge")){
+                const badge = document.createElement("span");
+                badge.className = "stock-badge";
+                badge.textContent = "AGOTADO";
+                content.insertBefore(badge, content.firstChild);
+            }
+
+            if(button){
+                button.disabled = true;
+                button.textContent = "Agotado";
+            }
+        }
+    });
+
+    document.querySelectorAll(".category-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            activeCategory = button.dataset.filter;
+
+            document.querySelectorAll(".category-btn").forEach(item => {
+                item.classList.toggle("active", item === button);
+            });
+
+            applyProductFilters();
+        });
+    });
+
+    document.getElementById("productSearch").addEventListener("input", applyProductFilters);
+    applyProductFilters();
+}
+
+function applyProductFilters(){
+    const search = document.getElementById("productSearch").value
+        .trim()
+        .toLocaleLowerCase("es");
+
+    const cards = Array.from(document.querySelectorAll(".products .card"));
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const categoryMatches =
+            activeCategory === "all" || card.dataset.category === activeCategory;
+
+        const productName = card.querySelector("h3").textContent
+            .trim()
+            .toLocaleLowerCase("es");
+
+        const searchMatches = productName.includes(search);
+        const visible = categoryMatches && searchMatches;
+
+        card.style.display = visible ? "" : "none";
+
+        if(visible) visibleCount++;
+    });
+
+    let message = document.getElementById("noProductsMessage");
+
+    if(visibleCount === 0){
+        if(!message){
+            message = document.createElement("p");
+            message.id = "noProductsMessage";
+            message.className = "no-results";
+            message.textContent = "No se encontraron productos.";
+            document.querySelector(".products").appendChild(message);
+        }
+        message.style.display = "block";
+    }else if(message){
+        message.style.display = "none";
+    }
+
+    document.getElementById("productCount").textContent =
+        `${visibleCount} ${visibleCount === 1 ? "producto" : "productos"}`;
+}
+
 
 let cart = {};
 let lastInvoiceImage = null;
@@ -803,6 +1009,8 @@ function closeInvoice(){
 
     }
 }
+
+initializeProductFilters();
 
 console.log("Script cargado");
 
