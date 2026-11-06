@@ -377,7 +377,13 @@ const products = [
         image: "cartera-monedero-rojo.jpg",
         category: "bags",
         available: true,
-        colors: ["Negro", "Rojo", "Beige", "Burgundi"]
+        colors: ["Negro", "Rojo", "Beige", "Burgundi"],
+        colorImages: {
+            "Negro": "cartera-monedero-negro.jpg",
+            "Rojo": "cartera-monedero-rojo.jpg",
+            "Beige": "cartera-monedero-beige.jpg",
+            "Burgundi": "cartera-monedero-burgundi.jpg",
+        }
     }
 ];
 
@@ -473,6 +479,7 @@ function renderProducts() {
                     src="${escapeHTML(product.image)}"
                     alt="${escapeHTML(product.name)}"
                     loading="lazy"
+                    data-product-image
                 >
 
                 <div class="card-content">
@@ -507,6 +514,34 @@ function renderProducts() {
             const index = Number(button.dataset.productIndex);
             addProductToCart(index);
         });
+    });
+    // Cambiar imagen según el color seleccionado
+    productsContainer.querySelectorAll("[data-color-select]").forEach(select => {
+
+        select.addEventListener("change", () => {
+    
+            const card = select.closest("[data-card-index]");
+    
+            const index = Number(card.dataset.cardIndex);
+    
+            const product = products[index];
+    
+            const image = card.querySelector("[data-product-image]");
+    
+            const selectedColor = select.value;
+    
+            if (product.colorImages && product.colorImages[selectedColor]) {
+    
+                image.src = product.colorImages[selectedColor];
+    
+            } else {
+    
+                image.src = product.image;
+    
+            }
+    
+        });
+
     });
 }
 
